@@ -3,9 +3,11 @@ class UsersController < ApplicationController
     before_action :authenticate_user!
     before_action :user_is_admin?
     before_action :find_users, only: %i[index]
-    before_action :find_user, only: %i[update destroy]
+    before_action :find_user, only: %i[edit update destroy]
 
     def index; end
+
+    def edit; end
 
     def update
         @user.update(user_params)
@@ -28,6 +30,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:date_from, :date_to)
+        params.permit(:date_from, :date_to)
     end
 end

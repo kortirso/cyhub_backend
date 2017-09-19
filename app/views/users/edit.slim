@@ -1,0 +1,9 @@
+- provide(:path, 'users')
+= render 'shared/admin_nav'
+.inside
+    .dates
+        p Choose dates
+        = form_tag({ controller: 'users', action: 'update' }, method: 'patch') do
+            = text_field_tag :date_from, nil, placeholder: 'From'
+            = text_field_tag :date_to, nil, placeholder: 'To'
+            = submit_tag 'Update', class: 'button'

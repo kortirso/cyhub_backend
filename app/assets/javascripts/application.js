@@ -18,4 +18,7 @@
 
 $(function() {
     $(document).foundation();
+
+    $('#date_from').fdatepicker({format: 'dd/mm/yyyy',leftArrow:'<<',rightArrow:'>>'});
+    $('#date_to').fdatepicker({format: 'dd/mm/yyyy',leftArrow:'<<',rightArrow:'>>'});
 });

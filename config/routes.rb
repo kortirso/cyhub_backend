@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
         scope path: '/admin' do
             get '/' => 'admins#index', as: :admin_panel
-            resources :users, only: %i[index update destroy]
+            resources :users, only: %i[index edit update destroy]
         end
 
         root to: 'welcome#index'
