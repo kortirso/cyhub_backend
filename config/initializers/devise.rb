@@ -253,7 +253,7 @@ Devise.setup do |config|
     # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
     if Rails.env.production?
-        config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email,public_profile', info_fields: 'email,link,locale,first_name,last_name,verified', callback_url: 'https://cyhub.org/users/auth/facebook/callback'
+        config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email,public_profile', info_fields: 'email,link,locale,first_name,last_name,verified', callback_url: 'http://46.101.217.59:3013/users/auth/facebook/callback'
     else
         config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email,public_profile',
                   info_fields: 'email,link,locale,first_name,last_name,verified'
