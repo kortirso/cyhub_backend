@@ -1,0 +1,23 @@
+- provide(:path, 'users')
+= render 'shared/admin_nav'
+.inside
+    table
+        thead
+            tr
+                th ID
+                th email
+                th Role
+                th SignIn Count
+                th Last SignIn
+                th
+        tbody
+            - @users.each do |user|
+                tr id="user_#{user.id}"
+                    td= user.id
+                    td= user.email
+                    td= user.role
+                    td= user.sign_in_count
+                    td= user.last_sign_in_at
+                    td
+                        p= link_to 'Edit', user
+                        p= link_to 'Delete', user, method: :delete, remote: true

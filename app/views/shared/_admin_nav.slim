@@ -1,0 +1,4 @@
+.admin_nav
+    ul.menu.vertical
+        li= link_to 'Main page', admin_panel_path, class: "#{'active' if yield(:path) == 'admin'}"
+        li= link_to 'Users', users_path, class: "#{'active' if yield(:path) == 'users'}"

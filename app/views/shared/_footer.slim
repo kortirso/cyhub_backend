@@ -8,7 +8,7 @@ footer
                 .columns.small-12.medium-4
                     h4 Information
                     - if current_user.try(:admin?)
-                        p= link_to 'Admin Panel', ''
+                        p= link_to 'Admin Panel', admin_panel_path
                 .coders.columns.small-12.medium-4
                     = link_to image_tag('Logo-hvid.png'), 'https://junglecoders.com/', target: '_blank'
 .bottom_footer
