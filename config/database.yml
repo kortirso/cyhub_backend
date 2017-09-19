@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  port: 5432
+  username: <%= ENV['CYHUB_DATABASE_USERNAME'] %>
+  password: <%= ENV['CYHUB_DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: cyhub_development
+
+test:
+  <<: *default
+  database: cyhub_test
+
+production:
+  <<: *default
+  database: cyhub_production
