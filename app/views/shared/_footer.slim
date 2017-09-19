@@ -1,0 +1,18 @@
+footer
+    .row
+        .columns.small-12.medium-10.medium-offset-1
+            .footer
+                .columns.small-12.medium-4
+                    h4 Contacts
+                    p= link_to 'CyHub page', 'http://cyhub.org'
+                .columns.small-12.medium-4
+                    h4 Information
+                    - if current_user.try(:admin?)
+                        p= link_to 'Admin Panel', ''
+                .coders.columns.small-12.medium-4
+                    = link_to image_tag('Logo-hvid.png'), 'https://junglecoders.com/', target: '_blank'
+.bottom_footer
+    .row
+        .columns.small-12.medium-10.medium-offset-1
+            .columns.small-12.medium-6.large-4.large-offset-4
+                span CyHub 0.1 © 2017
