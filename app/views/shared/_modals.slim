@@ -5,6 +5,7 @@
         .small-12.columns= f.text_field :email, autofocus: true, placeholder: 'Email'
         .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: 'password'
         .small-12.columns= f.submit 'SignIn', class: 'button', id: 'authorization'
+        .small-12.columns= render 'shared/login_through'
     button.close-button aria-label=('Close modal') data-close='' type='button'
         span aria-hidden='true' &times;
 #signup.reveal.tiny data-reveal=''
@@ -15,5 +16,6 @@
         .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: 'password'
         .small-12.columns= f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'password confirmation'
         .small-12.columns= f.submit 'SignUp', class: 'button', id: 'registration'
+        .small-12.columns= render 'shared/login_through'
     button.close-button aria-label=('Close modal') data-close='' type='button'
         span aria-hidden='true' &times;

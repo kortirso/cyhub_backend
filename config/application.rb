@@ -21,6 +21,9 @@ module CyhubBackend
         # Initialize configuration defaults for originally generated Rails version.
         config.load_defaults 5.1
 
+        I18n.available_locales = %i[en]
+        config.i18n.default_locale = :en
+
         config.active_record.schema_format = :ruby
         config.generators do |g|
             g.test_framework :rspec, fixtures: true, views: false, view_specs: false, helper_specs: false,

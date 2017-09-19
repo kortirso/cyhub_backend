@@ -45,6 +45,9 @@ gem 'omniauth-facebook'
 # Code analyzation
 gem 'rubocop', '~> 0.49.1', require: false
 
+# I18n
+gem 'route_translator'
+
 group :development do
     gem 'capistrano', require: false
     gem 'capistrano-bundler', require: false

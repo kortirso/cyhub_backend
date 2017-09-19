@@ -9,3 +9,4 @@
                 .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: 'password'
                 .small-12.columns= f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'password confirmation'
                 .small-12.columns=  f.submit 'SignUp', class: 'button', id: 'registration'
+                .small-12.columns= render 'shared/login_through'
