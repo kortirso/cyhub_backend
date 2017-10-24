@@ -9,6 +9,12 @@ Rails.application.routes.draw do
             resources :users, only: %i[index edit update destroy]
         end
 
+        namespace :api do
+            namespace :v1 do
+                get 'users/me' => 'users#me'
+            end
+        end
+
         root to: 'welcome#index'
     end
 
