@@ -19,9 +19,11 @@
                     td= user.id
                     td= user.email
                     td= user.role
-                    td= user.date_from.strftime('%Y/%m/%d')
-                    td= user.date_to.strftime('%Y/%m/%d')
-                    td= (user.date_to.to_i - Time.now.to_i) / 86400
+                    td= user.date_from.try(:strftime, '%Y/%m/%d')
+                    td= user.date_to.try(:strftime, '%Y/%m/%d')
+                    td
+                        - if user.date_to.present?
+                            = (user.date_to.to_i - Time.now.to_i) / 86400
                     td= user.sign_in_count
                     td= user.last_sign_in_at
                     td
