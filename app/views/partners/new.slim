@@ -1,0 +1,11 @@
+- provide(:path, 'partners')
+= render 'shared/admin_nav'
+.inside
+    .partners
+        p Set new partner's params
+        = form_tag({ controller: 'partners', action: 'create' }, method: 'post') do
+            = text_field_tag :name, nil, placeholder: 'Name'
+            = text_field_tag :label, nil, placeholder: 'Label'
+            = text_field_tag :description, nil, placeholder: 'Description'
+            = text_field_tag :link, nil, placeholder: 'Link'
+            p= submit_tag 'Create', class: 'button'

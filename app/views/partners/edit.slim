@@ -1,0 +1,11 @@
+- provide(:path, 'partners')
+= render 'shared/admin_nav'
+.inside
+    .partners
+        p Change partner's params
+        = form_tag(@partner, method: 'patch') do
+            = text_field_tag :name, @partner.name, placeholder: 'Name'
+            = text_field_tag :label, @partner.label, placeholder: 'Label'
+            = text_field_tag :description, @partner.description, placeholder: 'Description'
+            = text_field_tag :link, @partner.link, placeholder: 'Link'
+            p= submit_tag 'Update', class: 'button'

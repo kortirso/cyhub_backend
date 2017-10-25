@@ -233,8 +233,13 @@ h1 {
         width: 300px;
     }
     .dates {
-        input {
+        input[type='text'] {
             width: 200px;
+        }
+    }
+    .partners {
+        input[type='text'] {
+            width: 400px;
         }
     }
 }

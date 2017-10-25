@@ -9,7 +9,14 @@ class PartnersController < ApplicationController
 
     def new; end
 
-    def create; end
+    def create
+        partner = Partner.new(partner_params)
+        if partner.save
+            redirect_to partners_path
+        else
+            render :new
+        end
+    end
 
     def edit; end
 

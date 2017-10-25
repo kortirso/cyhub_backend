@@ -1,6 +1,7 @@
 - provide(:path, 'partners')
 = render 'shared/admin_nav'
 .inside
+    = link_to 'New Partner', new_partner_path, class: 'button'
     table
         thead
             tr
@@ -13,11 +14,11 @@
         tbody
             - @partners.each do |partner|
                 tr id="partner_#{partner.id}"
-                    td= user.id
-                    td= user.name
-                    td= user.title
-                    td= user.description
-                    td= user.link
+                    td= partner.id
+                    td= partner.name
+                    td= partner.label
+                    td= partner.description
+                    td= partner.link
                     td
                         p= link_to 'Edit', edit_partner_path(partner)
                         p= link_to 'Delete', partner, method: :delete, remote: true
