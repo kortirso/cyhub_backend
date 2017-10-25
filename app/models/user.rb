@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
     validates :role, presence: true, inclusion: { in: %w[user admin] }
 
+    scope :active, -> { where(active: true) }
+
     def self.find_for_oauth(auth)
         identity = Identity.find_for_oauth(auth)
         return identity.user if identity.present?

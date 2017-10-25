@@ -7,7 +7,7 @@ module Api
             private
 
             def authenticate
-                @user = User.find_by(email: params[:email])
+                @user = User.active.find_by(email: params[:email])
                 render json: { error: 'Unauthorized' }, status: 401 if @user.nil? || !@user.valid_password?(params[:password])
             end
         end
