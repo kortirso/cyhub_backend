@@ -1,0 +1,23 @@
+- provide(:path, 'partners')
+= render 'shared/admin_nav'
+.inside
+    table
+        thead
+            tr
+                th ID
+                th Name
+                th Title
+                th Description
+                th Link
+                th
+        tbody
+            - @partners.each do |partner|
+                tr id="partner_#{partner.id}"
+                    td= user.id
+                    td= user.name
+                    td= user.title
+                    td= user.description
+                    td= user.link
+                    td
+                        p= link_to 'Edit', edit_partner_path(partner)
+                        p= link_to 'Delete', partner, method: :delete, remote: true
