@@ -6,7 +6,8 @@
             tr
                 th ID
                 th email
-                th Active
+                th Username
+                th Active?
                 th Role
                 th From
                 th To
@@ -19,6 +20,7 @@
                 tr id="user_#{user.id}"
                     td= user.id
                     td= user.email
+                    td= user.username
                     td= user.active?
                     td= user.role
                     td= user.date_from.try(:strftime, '%Y/%m/%d')

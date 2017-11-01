@@ -4,6 +4,7 @@
     .dates
         p Choose dates
         = form_tag({ controller: 'users', action: 'update' }, method: 'patch') do
+            = text_field_tag :username, nil, placeholder: 'Username'
             = text_field_tag :date_from, nil, placeholder: 'From'
             = text_field_tag :date_to, nil, placeholder: 'To'
             = label_tag :active, 'Set activity'
