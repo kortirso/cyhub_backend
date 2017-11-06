@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require foundation
+//= require foundation-datepicker
 //= require_tree .
 
 $(function() {
