@@ -23,6 +23,6 @@ class User < ApplicationRecord
     end
 
     def days_left
-        date_to.present? ? ((user.date_to.to_i - Time.now.to_i) / 86400) : 0
+        date_to.present? ? ((date_to.to_i - Time.now.to_i) / 86400) : 0
     end
 end
