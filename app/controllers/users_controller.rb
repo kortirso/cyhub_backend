@@ -30,6 +30,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:username, :date_from, :date_to, :active)
+        params.permit(:username, :date_from, :date_to, :active, :role)
     end
 end
