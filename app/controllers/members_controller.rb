@@ -37,6 +37,6 @@ class MembersController < ApplicationController
     end
 
     def member_params
-        params.permit(:name, :description)
+        params.permit(:name, :description, :date_from, :date_to, :active)
     end
 end
