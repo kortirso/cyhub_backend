@@ -14,6 +14,7 @@ Rails.application.routes.draw do
             namespace :v1 do
                 get 'users/me' => 'users#me'
                 resources :partners, only: %i[index]
+                resources :members, only: %i[index]
             end
         end
 
