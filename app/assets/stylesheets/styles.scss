@@ -232,14 +232,9 @@ h1 {
     .block {
         width: 300px;
     }
-    .dates {
+    .partners, .members, .dates {
         input[type='text'], select {
-            width: 200px;
-        }
-    }
-    .partners {
-        input[type='text'] {
-            width: 400px;
+            width: 300px;
         }
     }
 }

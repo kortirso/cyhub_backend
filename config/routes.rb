@@ -8,6 +8,7 @@ Rails.application.routes.draw do
             get '/' => 'admins#index', as: :admin_panel
             resources :users, only: %i[index edit update destroy]
             resources :partners, except: %i[show]
+            resources :members, except: %i[show new]
         end
 
         namespace :api do

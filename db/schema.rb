@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20171109082756) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+    t.string "name", default: ""
+    t.text "description", default: ""
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

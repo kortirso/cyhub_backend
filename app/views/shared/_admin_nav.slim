@@ -3,3 +3,4 @@
         li= link_to 'Main page', admin_panel_path, class: "#{'active' if yield(:path) == 'admin'}"
         li= link_to 'Users', users_path, class: "#{'active' if yield(:path) == 'users'}"
         li= link_to 'Partners', partners_path, class: "#{'active' if yield(:path) == 'partners'}"
+        li= link_to 'Members', members_path, class: "#{'active' if yield(:path) == 'members'}"

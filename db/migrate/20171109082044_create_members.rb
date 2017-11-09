@@ -1,8 +1,8 @@
 class CreateMembers < ActiveRecord::Migration[5.1]
     def change
         create_table :members do |t|
-            t.string :name
-            t.text :description
+            t.string :name, default: ''
+            t.text :description, default: ''
             t.integer :user_id
             t.timestamps
         end
