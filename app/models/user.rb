@@ -3,10 +3,9 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
 
     has_many :identities, dependent: :destroy
+    has_one :member, dependent: :destroy
 
     validates :role, presence: true, inclusion: { in: %w[user admin] }
-
-    scope :active, -> { where(active: true) }
 
     def self.find_for_oauth(auth)
         identity = Identity.find_for_oauth(auth)
@@ -20,9 +19,5 @@ class User < ApplicationRecord
 
     def admin?
         role == 'admin'
-    end
-
-    def days_left
-        date_to.present? ? ((date_to.to_i - Time.now.to_i) / 86400) : 0
     end
 end
