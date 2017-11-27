@@ -13,7 +13,7 @@ module Api
             end
 
             def user_creation
-                @user = User.new email: params[:email], password: params[:password], active: true
+                @user = User.new email: params[:email], password: params[:password]
                 render json: { error: 'User creation error' }, status: 401 unless @user.save
             end
         end
