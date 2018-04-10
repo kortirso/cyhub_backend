@@ -1,3 +1,3 @@
 class PartnerSerializer < ActiveModel::Serializer
-    attributes :id, :name, :label, :description, :link
+  attributes :id, :name, :label, :description, :link
 end

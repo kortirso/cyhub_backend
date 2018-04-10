@@ -2,6 +2,56 @@
   "name": "cyhub_backend",
   "private": true,
   "dependencies": {
-    "foundation-datepicker": "^1.5.6"
+    "@rails/webpacker": "^3.4.3",
+    "babel-preset-react": "^6.24.1",
+    "foundation-datepicker": "^1.5.6",
+    "foundation-sites": "^6.4.4-rc1",
+    "jquery": "^3.2.1",
+    "normalize.css": "^7.0.0",
+    "postcss-nested": "^3.0.0",
+    "prop-types": "^15.6.1",
+    "rails-ujs": "^5.1.4",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-localization": "^0.1.6",
+    "webpacker-react": "^0.3.2"
+  },
+  "scripts": {
+    "lint-staged": "$(yarn bin)/lint-staged"
+  },
+  "lint-staged": {
+    "config/webpack/**/*.js": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ],
+    "frontend/**/*.js": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ],
+    "frontend/**/*.css": [
+      "prettier --write",
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "lint-staged": "^6.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.9.2",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }

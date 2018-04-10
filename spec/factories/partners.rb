@@ -1,4 +1,4 @@
-FactoryGirl.define do
-    factory :partner do
-    end
+FactoryBot.define do
+  factory :partner do
+  end
 end

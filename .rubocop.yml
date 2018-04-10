@@ -4,12 +4,12 @@ AllCops:
     - '**/config.ru'
   Exclude:
     - db/schema.rb
+    - db/migrate/*
     - config.ru
     - lib/**/*.rake
     - vendor/**/*
     - bin/*
     - node_modules/**/*
-    - spec/controllers/tasks_controller_spec.rb
 
 Metrics/AbcSize:
   Enabled: false
@@ -34,7 +34,7 @@ Metrics/CyclomaticComplexity:
 
 Layout/IndentationWidth:
   # Number of spaces for each indentation level.
-  Width: 4
+  Width: 2
 
 Layout/CaseIndentation:
   EnforcedStyle: case
