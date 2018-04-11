@@ -1,0 +1,23 @@
+= render 'components/navigation_admin/navigation_admin', path: 'partners'
+.inside
+  = link_to 'New Partner', new_partner_path, class: 'button'
+  table
+    thead
+      tr
+        th ID
+        th Name
+        th Title
+        th Description
+        th Link
+        th
+    tbody
+      - @partners.each do |partner|
+        tr id="partner_#{partner.id}"
+          td= partner.id
+          td= partner.name
+          td= partner.label
+          td= partner.description
+          td= partner.link
+          td
+            p= link_to 'Edit', edit_partner_path(partner)
+            p= link_to 'Delete', partner, method: :delete, remote: true
