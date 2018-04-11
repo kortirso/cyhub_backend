@@ -16,7 +16,7 @@
         tr id="partner_#{partner.id}"
           td= partner.id
           td= partner.name
-          td= image_tag(partner.logo)
+          td= ('<img src="data:image/jpg;base64,%s">' % Base64.encode64(partner.logo_content)).html_safe
           td= partner.label
           td= partner.description
           td= partner.link

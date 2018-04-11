@@ -18,7 +18,7 @@
         tr id="member_#{member.id}"
           td= member.id
           td= member.name
-          td= image_tag(member.avatar)
+          td= ('<img src="data:image/jpg;base64,%s">' % Base64.encode64(member.avatar_content)).html_safe
           td= member.description
           td= member.user_id
           td= member.active?

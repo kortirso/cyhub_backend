@@ -2,6 +2,7 @@
   margin-left: 200px;
   padding: 0 20px;
   height: 100%;
+
   table {
     thead {
       tr {
@@ -13,27 +14,39 @@
         }
       }
     }
+
     tbody {
       tr {
         td {
           font-size: 14px;
           text-align: center;
           padding: 5px;
+
           p {
             margin: 0;
+
             a {
               font-size: 14px;
             }
+          }
+
+          img {
+            width: 100px;
           }
         }
       }
     }
   }
+
   .block {
     width: 300px;
   }
-  .partners, .members, .dates {
-    input[type='text'], select {
+
+  .partners,
+  .members,
+  .dates {
+    input[type="text"],
+    select {
       width: 300px;
     }
   }

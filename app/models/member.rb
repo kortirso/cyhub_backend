@@ -13,4 +13,8 @@ class Member < ApplicationRecord
   def days_left
     date_to.present? ? ((date_to.to_i - Time.now.to_i) / SECONDS_IN_DAY) : 0
   end
+
+  def avatar_content
+    avatar.attachment.blob.download
+  end
 end
