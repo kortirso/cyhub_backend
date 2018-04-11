@@ -2,6 +2,8 @@
 class Member < ApplicationRecord
   SECONDS_IN_DAY = 86_400
 
+  has_one_attached :avatar
+
   belongs_to :user
 
   validates :user_id, :name, :description, presence: true

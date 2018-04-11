@@ -6,6 +6,7 @@
       tr
         th ID
         th Name
+        th Photo
         th Title
         th Description
         th Link
@@ -15,6 +16,7 @@
         tr id="partner_#{partner.id}"
           td= partner.id
           td= partner.name
+          td= image_tag(partner.logo)
           td= partner.label
           td= partner.description
           td= partner.link

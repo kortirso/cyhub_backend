@@ -5,6 +5,7 @@
       tr
         th ID
         th Name
+        th Photo
         th Description
         th UserID
         th Activity
@@ -17,6 +18,7 @@
         tr id="member_#{member.id}"
           td= member.id
           td= member.name
+          td= image_tag(member.avatar)
           td= member.description
           td= member.user_id
           td= member.active?

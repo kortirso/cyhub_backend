@@ -8,7 +8,7 @@ class MembersController < ApplicationController
   def index; end
 
   def create
-    member = Member.new(member_params.merge(user_id: params[:user_id]))
+    member = Member.new(member_params)
     redirect_to edit_member_path(member) if member.save
   end
 
@@ -24,7 +24,7 @@ class MembersController < ApplicationController
   end
 
   private def find_members
-    @members = Member.order(id: :asc)
+    @members = Member.order(id: :asc).with_attached_avatar
   end
 
   private def find_member
@@ -33,6 +33,6 @@ class MembersController < ApplicationController
   end
 
   private def member_params
-    params.permit(:name, :description, :date_from, :date_to, :active)
+    params.require(:member).permit(:name, :description, :date_from, :date_to, :active, :avatar, :user_id)
   end
 end

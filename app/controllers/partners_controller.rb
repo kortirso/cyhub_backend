@@ -30,7 +30,7 @@ class PartnersController < ApplicationController
   end
 
   private def find_partners
-    @partners = Partner.order(id: :asc)
+    @partners = Partner.order(id: :asc).with_attached_logo
   end
 
   private def find_partner
@@ -39,6 +39,6 @@ class PartnersController < ApplicationController
   end
 
   private def partner_params
-    params.permit(:name, :label, :description, :link)
+    params.require(:partner).permit(:name, :label, :description, :link, :logo)
   end
 end
