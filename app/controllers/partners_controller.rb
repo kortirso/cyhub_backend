@@ -27,6 +27,7 @@ class PartnersController < ApplicationController
 
   def destroy
     @partner.destroy
+    redirect_to partners_path, status: 303
   end
 
   private def find_partners

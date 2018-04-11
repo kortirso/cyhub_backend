@@ -21,6 +21,7 @@ class MembersController < ApplicationController
 
   def destroy
     @member.destroy
+    redirect_to members_path, status: 303
   end
 
   private def find_members
