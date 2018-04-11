@@ -16,7 +16,9 @@
         tr id="partner_#{partner.id}"
           td= partner.id
           td= partner.name
-          td= ('<img src="data:image/jpg;base64,%s">' % Base64.encode64(partner.logo_content)).html_safe
+          td
+            - if partner.logo_content.present?
+              = ('<img src="data:image/jpg;base64,%s">' % partner.logo_content).html_safe
           td= partner.label
           td= partner.description
           td= partner.link

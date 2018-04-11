@@ -15,6 +15,6 @@ class Member < ApplicationRecord
   end
 
   def avatar_content
-    avatar.attachment.blob.download
+    avatar.attached? ? Base64.encode64(avatar.attachment.blob.download) : nil
   end
 end

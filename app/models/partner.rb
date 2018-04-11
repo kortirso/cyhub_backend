@@ -5,6 +5,6 @@ class Partner < ApplicationRecord
   validates :name, :label, :description, :link, presence: true
 
   def logo_content
-    logo.attachment.blob.download
+    logo.attached? ? Base64.encode64(logo.attachment.blob.download) : nil
   end
 end
