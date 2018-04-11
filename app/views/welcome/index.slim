@@ -1,7 +1,2 @@
-main
-    .row
-        .columns.small-12
-            h1 Welcome to CyHub
-            - if user_signed_in?
-                p Thanks for signing in!
-                p Administrator will set your estimated time in CyHub, and you can check it in CyHub MobileApp at any time.
+= render 'components/page/page' do
+  = render 'components/welcome/welcome'

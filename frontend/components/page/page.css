@@ -1,0 +1,13 @@
+.content {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 75px;
+  padding-bottom: 147px;
+
+  @media (max-width: 600px) {
+    padding-top: 174px;
+    padding-bottom: 341px;
+  }
+}
