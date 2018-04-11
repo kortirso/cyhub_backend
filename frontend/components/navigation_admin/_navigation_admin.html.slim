@@ -1,0 +1,6 @@
+.admin_nav
+  ul.menu.vertical
+    li= link_to 'Main page', admin_panel_path, class: "#{'active' if path == 'admin'}"
+    li= link_to 'Users', users_path, class: "#{'active' if path == 'users'}"
+    li= link_to 'Partners', partners_path, class: "#{'active' if path == 'partners'}"
+    li= link_to 'Members', members_path, class: "#{'active' if path == 'members'}"

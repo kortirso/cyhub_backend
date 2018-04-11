@@ -1,0 +1,28 @@
+.admin_nav {
+  float: left;
+  width: 200px;
+  height: 100%;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  position: relative;
+
+  .menu {
+    li {
+      border-bottom: 1px solid #eee;
+
+      a {
+        padding: 15px 20px 16px;
+        color: #000;
+
+        &:hover {
+          color: #000;
+        }
+
+        &.active {
+          color: #000;
+          background: #eee;
+        }
+      }
+    }
+  }
+}
