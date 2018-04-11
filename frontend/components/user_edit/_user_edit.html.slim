@@ -1,0 +1,17 @@
+= render 'components/navigation_admin/navigation_admin', path: 'users'
+.inside
+  .dates
+    = form_tag({ controller: 'users', action: 'update' }, method: 'patch') do
+      p= label_tag :username, 'Username'
+      = text_field_tag :username, @user.username, placeholder: 'Username'
+      p= label_tag :role, 'User role'
+      = select_tag :role, options_for_select(['user','admin'], @user.role)
+      p= submit_tag 'Update', class: 'button'
+    - if @user.member.nil?
+      = form_tag({ controller: 'members', action: 'create' }, method: 'post') do
+        = hidden_field_tag :user_id, @user.id
+        = hidden_field_tag :name, (@user.username.empty? ? 'Not Yet' : @user.username)
+        = hidden_field_tag :description, 'Not Yet'
+        = submit_tag 'Create Membership', class: 'button'
+    - else
+      = link_to 'Edit member account', edit_member_path(@user.member), class: 'button'
