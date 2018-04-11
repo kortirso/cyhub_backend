@@ -1,29 +1,3 @@
-- provide(:path, 'members')
-= render 'shared/admin_nav'
-.inside
-    table
-        thead
-            tr
-                th ID
-                th Name
-                th Description
-                th UserID
-                th Activity
-                th From
-                th To
-                th Days left
-                th
-        tbody
-            - @members.each do |member|
-                tr id="member_#{member.id}"
-                    td= member.id
-                    td= member.name
-                    td= member.description
-                    td= member.user_id
-                    td= member.active?
-                    td= member.date_from.try(:strftime, '%Y/%m/%d')
-                    td= member.date_to.try(:strftime, '%Y/%m/%d')
-                    td= member.days_left
-                    td
-                        p= link_to 'Edit', edit_member_path(member)
-                        p= link_to 'Delete', member, method: :delete, remote: true
+= render 'components/page/page' do
+  = render 'components/members/members'
+  
