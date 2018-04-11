@@ -8,6 +8,7 @@ import "components/footer/footer";
 
 import "components/welcome/welcome";
 import "components/admin/admin";
+import "components/member_edit/member_edit";
 
 import Rails from "rails-ujs";
 
