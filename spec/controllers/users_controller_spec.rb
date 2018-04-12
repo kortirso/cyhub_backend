@@ -43,7 +43,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     def do_request
-      get :index, params: { id: 1, locale: 'en' }
+      get :edit, params: { id: 1, locale: 'en' }
     end
   end
 

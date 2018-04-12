@@ -1,11 +1,11 @@
-RSpec.describe PartnersController, type: :controller do
+RSpec.describe MembersController, type: :controller do
   describe 'GET #index' do
     it_behaves_like 'Admin Auth'
 
     context 'for admins' do
       sign_in_admin
 
-      it 'renders partners#index' do
+      it 'renders memebers#index' do
         get :index, params: { locale: 'en' }
 
         expect(response).to render_template :index
@@ -23,31 +23,23 @@ RSpec.describe PartnersController, type: :controller do
     context 'for admins' do
       sign_in_admin
 
-      context 'for invalid data partner' do
-        it 'renders new page' do
-          post :create, params: { partner: { name: 'admin' }, locale: 'en' }
+      context 'for valid member' do
+        let(:request) { post :create, params: { member: { name: 'admin', description: '2', user_id: @current_user.id }, locale: 'en' } }
 
-          expect(response).to render_template :new
-        end
-      end
-
-      context 'for valid partner' do
-        let(:request) { post :create, params: { partner: { name: 'admin', label: '1', description: '2', link: '3' }, locale: 'en' } }
-
-        it 'creates new partner' do
-          expect { request }.to change { Partner.count }.by(1)
+        it 'creates new member' do
+          expect { request }.to change { Member.count }.by(1)
         end
 
-        it 'and redirects to partners path' do
+        it 'and redirects to edit member path' do
           request
 
-          expect(response).to redirect_to partners_en_path
+          expect(response).to redirect_to edit_member_en_path(Member.last)
         end
       end
     end
 
     def do_request
-      post :create, params: { partner: {}, locale: 'en' }
+      post :create, params: { member: {}, locale: 'en' }
     end
   end
 
@@ -57,7 +49,7 @@ RSpec.describe PartnersController, type: :controller do
     context 'for admins' do
       sign_in_admin
 
-      context 'for unexisted partner' do
+      context 'for unexisted member' do
         it 'renders error page' do
           get :edit, params: { id: 111, locale: 'en' }
 
@@ -65,11 +57,11 @@ RSpec.describe PartnersController, type: :controller do
         end
       end
 
-      context 'for existed partner' do
-        let!(:partner) { create :partner }
+      context 'for existed member' do
+        let!(:member) { create :member }
 
         it 'renders partners#edit' do
-          get :edit, params: { id: partner.id, locale: 'en' }
+          get :edit, params: { id: member.id, locale: 'en' }
 
           expect(response).to render_template :edit
         end
@@ -87,7 +79,7 @@ RSpec.describe PartnersController, type: :controller do
     context 'for admins' do
       sign_in_admin
 
-      context 'for unexisted partner' do
+      context 'for unexisted member' do
         it 'renders error page' do
           patch :update, params: { id: 111, locale: 'en' }
 
@@ -95,21 +87,21 @@ RSpec.describe PartnersController, type: :controller do
         end
       end
 
-      context 'for existed partner' do
-        let!(:partner) { create :partner }
-        let(:request) { patch :update, params: { partner: { name: 'admin' }, id: partner.id, locale: 'en' } }
+      context 'for existed member' do
+        let!(:member) { create :member }
+        let(:request) { patch :update, params: { member: { name: 'admin' }, id: member.id, locale: 'en' } }
 
-        it 'changes partner object' do
+        it 'changes member object' do
           request
-          partner.reload
+          member.reload
 
-          expect(partner.name).to eq 'admin'
+          expect(member.name).to eq 'admin'
         end
 
-        it 'and redirects to partners path' do
+        it 'and redirects to members path' do
           request
 
-          expect(response).to redirect_to partners_en_path
+          expect(response).to redirect_to members_en_path
         end
       end
     end
@@ -125,7 +117,7 @@ RSpec.describe PartnersController, type: :controller do
     context 'for admins' do
       sign_in_admin
 
-      context 'for unexisted partner' do
+      context 'for unexisted member' do
         it 'renders error page' do
           delete :destroy, params: { id: 111, locale: 'en' }
 
@@ -133,18 +125,18 @@ RSpec.describe PartnersController, type: :controller do
         end
       end
 
-      context 'for existed partner' do
-        let!(:partner) { create :partner }
-        let(:request) { delete :destroy, params: { id: partner.id, locale: 'en' } }
+      context 'for existed member' do
+        let!(:member) { create :member }
+        let(:request) { delete :destroy, params: { id: member.id, locale: 'en' } }
 
-        it 'destroys partner object' do
-          expect { request }.to change { Partner.count }.by(-1)
+        it 'destroys member object' do
+          expect { request }.to change { Member.count }.by(-1)
         end
 
-        it 'and redirects to partners path' do
+        it 'and redirects to members path' do
           request
 
-          expect(response).to redirect_to partners_en_path
+          expect(response).to redirect_to members_en_path
         end
       end
     end
