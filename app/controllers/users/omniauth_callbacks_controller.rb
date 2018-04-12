@@ -9,7 +9,8 @@ module Users
       return redirect_to root_path, flash: { error: 'Access Error' } if request.env['omniauth.auth'].nil?
       @user = User.find_for_oauth(request.env['omniauth.auth'])
       if @user
-        sign_in_and_redirect @user, event: :authentication
+        sign_in @user
+        redirect_to root_path, event: :authentication
       else
         redirect_to root_path, flash: { manifesto_username: true }
       end
