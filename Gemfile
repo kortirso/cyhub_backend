@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.5.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -67,4 +67,5 @@ end
 group :test do
   gem 'json_spec'
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
