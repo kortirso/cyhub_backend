@@ -3,5 +3,9 @@ FactoryBot.define do
     name 'Member'
     description 'Description'
     association :user
+
+    trait :active do
+      active true
+    end
   end
 end
