@@ -5,7 +5,7 @@ RSpec.describe UsersController, type: :controller do
     context 'for admins' do
       sign_in_admin
 
-      it 'renders tasks#index' do
+      it 'renders users#index' do
         get :index, params: { locale: 'en' }
 
         expect(response).to render_template :index
@@ -34,7 +34,7 @@ RSpec.describe UsersController, type: :controller do
       context 'for existed user' do
         let!(:user) { create :user }
 
-        it 'renders tasks#index' do
+        it 'renders users#edit' do
           get :edit, params: { id: user.id, locale: 'en' }
 
           expect(response).to render_template :edit
