@@ -65,7 +65,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
   gem 'json_spec'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
