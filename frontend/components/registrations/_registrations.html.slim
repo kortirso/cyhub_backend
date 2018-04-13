@@ -1,0 +1,14 @@
+.grid-container
+  #sign_up_form
+    .grid-x
+      .columns.small-12
+        = devise_error_messages!
+    .grid-x
+      .columns.medium-4
+        = form_with model: User.new, as: :user, url: registration_path(:user), local: true do |f|
+          .grid-x
+            .small-12.columns= f.text_field :email, required: true, label: false, placeholder: 'Email'
+            .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: 'password'
+            .small-12.columns= f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'password confirmation'
+            .small-12.columns= f.submit 'SignUp', class: 'button', id: 'registration'
+            .small-12.columns= render 'components/modals/login_through'

@@ -1,0 +1,10 @@
+.grid-container
+  #sign_in_form
+    .grid-x
+      .columns.medium-4
+          = form_with model: User.new, as: :user, url: session_path(:user), local: true do |f|
+            .grid-x
+              .small-12.columns= f.text_field :email, autofocus: true, label: false, placeholder: 'Email'
+              .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: 'password'
+              .small-12.columns= f.submit 'SignIn', class: 'button', id: 'authorization'
+              .small-12.columns= render 'components/modals/login_through'
