@@ -58,7 +58,6 @@ group :development do
 end
 
 group :test do
-  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'json_spec'
@@ -66,5 +65,4 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
 end

@@ -15,7 +15,6 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 after_script:
-  - bundle exec rake coveralls:push
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 install: bundle install --jobs=3 --retry=3
 script:
