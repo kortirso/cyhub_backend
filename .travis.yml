@@ -3,8 +3,6 @@ language: ruby
 rvm: 2.5.1
 addons:
   postgresql: 9.6
-  code_climate:
-    repo_token: 9e32ff08088a9e2b642813dc82b93b4779c3feec5dff20cbe507cd880bf6964c
 after_success:
   - bundle exec codeclimate-test-reporter
 before_script:
