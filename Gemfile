@@ -57,15 +57,14 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :development, :test do
+group :test do
+  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'json_spec'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-end
-
-group :test do
-  gem 'json_spec'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
 end
