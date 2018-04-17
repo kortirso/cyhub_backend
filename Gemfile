@@ -36,6 +36,9 @@ gem 'devise', github: 'plataformatec/devise'
 # Add Auth through social networks
 gem 'omniauth-facebook'
 
+# Add Facebook API
+gem 'koala'
+
 # Code analyzation
 gem 'rubocop', '~> 0.49.1', require: false
 
