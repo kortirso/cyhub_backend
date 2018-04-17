@@ -4,6 +4,9 @@ module OmniauthMacros
     OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
       'provider' => 'facebook',
       'uid' => '123545',
+      'credentials' => {
+        'token' => '1234567890'
+      },
       'info' => {
         'email' => 'example_facebook@xyze.it',
         'name' => 'Alberto Pellizzon',
@@ -21,6 +24,9 @@ module OmniauthMacros
     OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
       'provider' => 'facebook',
       'uid' => '123545',
+      'credentials' => {
+        'token' => '1234567890'
+      },
       'info' => {
         'name' => 'Alberto Pellizzon',
         'first_name' => 'Alberto',

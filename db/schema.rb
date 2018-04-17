@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_17_045057) do
+ActiveRecord::Schema.define(version: 2018_04_17_070925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2018_04_17_045057) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "link"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "identities", force: :cascade do |t|
     t.string "uid"
     t.string "provider"
@@ -46,8 +56,8 @@ ActiveRecord::Schema.define(version: 2018_04_17_045057) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+    t.string "name", default: ""
+    t.text "description", default: ""
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
