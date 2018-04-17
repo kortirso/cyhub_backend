@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         get 'users/me' => 'users#me'
         resources :partners, only: %i[index]
         resources :members, only: %i[index]
+        resources :events, only: %i[index]
       end
     end
 
