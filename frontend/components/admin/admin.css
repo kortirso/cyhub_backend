@@ -44,9 +44,11 @@
 
   .partners,
   .members,
-  .dates {
+  .dates,
+  .events {
     input[type="text"],
-    select {
+    select,
+    textarea {
       width: 300px;
     }
   }

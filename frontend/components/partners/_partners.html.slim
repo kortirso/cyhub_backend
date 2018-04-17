@@ -17,8 +17,8 @@
           td= partner.id
           td= partner.name
           td
-            - if partner.logo_content.present?
-              = ('<img src="data:image/jpg;base64,%s">' % partner.logo_content).html_safe
+            - if partner.logo.attached?
+              = image_tag(partner.logo)
           td= partner.label
           td= partner.description
           td= partner.link

@@ -1,0 +1,29 @@
+= render 'components/navigation_admin/navigation_admin', path: 'events'
+.inside
+  = link_to 'New Event', new_event_path, class: 'button'
+  table
+    thead
+      tr
+        th ID
+        th Name
+        th Image
+        th Link
+        th Description
+        th Started At
+        th Finished At
+        th
+    tbody
+      - @events.each do |event|
+        tr
+          td= event.id
+          td= event.name
+          td
+            - if event.image.attached?
+              = image_tag(event.image)
+          td= event.link
+          td= event.description
+          td= event.started_at.try(:strftime, '%Y/%m/%d %H:%M')
+          td= event.finished_at.try(:strftime, '%Y/%m/%d %H:%M')
+          td
+            p= link_to 'Edit', edit_event_path(event)
+            p= link_to 'Delete', event, method: :delete

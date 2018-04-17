@@ -1,0 +1,12 @@
+= render 'components/navigation_admin/navigation_admin', path: 'events'
+.inside
+  .events
+    p Set new event's params
+    = form_with model: Event.new, local: true do |f|
+      = f.text_field :name, placeholder: 'Name'
+      = f.text_field :link, placeholder: 'Link'
+      = f.text_area :description, placeholder: 'Description'
+      = f.text_field :started_at, placeholder: 'Started At'
+      = f.text_field :finished_at, placeholder: 'Finished At'
+      = f.file_field :image
+      p= f.submit 'Create', class: 'button'

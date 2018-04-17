@@ -19,8 +19,8 @@
           td= member.id
           td= member.name
           td
-            - if member.avatar_content.present?
-              = ('<img src="data:image/jpg;base64,%s">' % member.avatar_content).html_safe
+            - if member.avatar.attached?
+              = image_tag(member.avatar)
           td= member.description
           td= member.user_id
           td= member.active?
