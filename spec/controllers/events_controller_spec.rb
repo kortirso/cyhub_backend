@@ -41,7 +41,7 @@ RSpec.describe EventsController, type: :controller do
         it 'and redirects to events path' do
           request
 
-          expect(response).to redirect_to events_en_path
+          expect(response).to redirect_to edit_event_en_path(Event.last)
         end
       end
     end
