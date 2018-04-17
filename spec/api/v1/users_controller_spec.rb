@@ -1,6 +1,6 @@
 describe 'Users API' do
-  describe 'GET #me' do
-    let(:request) { get '/api/v1/users/me', params: { email: 'simple@email.com', password: '12345678', format: :json } }
+  describe 'POST #me' do
+    let(:request) { post '/api/v1/users/me', params: { email: 'simple@email.com', password: '12345678', format: :json } }
 
     context 'if user does not exist' do
       it 'creates new user' do
@@ -58,7 +58,7 @@ describe 'Users API' do
       end
 
       context 'for invalid data' do
-        let(:invalid_request) { get '/api/v1/users/me', params: { email: 'simple@email.com', password: '1234', format: :json } }
+        let(:invalid_request) { post '/api/v1/users/me', params: { email: 'simple@email.com', password: '1234', format: :json } }
 
         it 'does not create new user' do
           expect { invalid_request }.to_not change(User, :count)
