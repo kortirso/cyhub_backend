@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def admin?
     role == 'admin'
   end
+
+  def update_token(token)
+    update(token: token)
+  end
 end
