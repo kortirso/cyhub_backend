@@ -22,6 +22,10 @@ class User < ApplicationRecord
     role == 'admin'
   end
 
+  def member?
+    member.present?
+  end
+
   def update_token(token)
     update(token: token)
   end
