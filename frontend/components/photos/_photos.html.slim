@@ -1,0 +1,21 @@
+= render 'components/navigation_admin/navigation_admin', path: 'photos'
+.inside
+  table
+    thead
+      tr
+        th ID
+        th Photo
+        th Description
+        th Member
+        th
+    tbody
+      - @photos.each do |photo|
+        tr
+          td= photo.id
+          td
+            - if photo.image.attached?
+              = image_tag(photo.image)
+          td= photo.description
+          td= photo.member.name
+          td
+            p= link_to 'Delete', photo, method: :delete
