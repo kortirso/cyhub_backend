@@ -1,7 +1,4 @@
 class PhotoSerializer < ActiveModel::Serializer
-  attributes :id, :member_name, :description, :image_content
-
-  def member_name
-    object.member.try(:name)
-  end
+  attributes :id, :description, :image_content
+  has_one :member
 end

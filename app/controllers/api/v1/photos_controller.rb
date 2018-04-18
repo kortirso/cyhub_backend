@@ -6,13 +6,13 @@ module Api
       before_action :check_member, only: %i[create]
 
       def index
-        render json: { photos: ActiveModel::Serializer::CollectionSerializer.new(Photo.order(id: :asc).with_attached_image.limit(15), each_serializer: PhotoSerializer) }, status: 200
+        render json: { photos: ActiveModel::Serializer::CollectionSerializer.new(Photo.order(id: :desc).with_attached_image.limit(15), each_serializer: PhotoSerializer) }, status: 200
       end
 
       def create
         photo = Photo.create(photo_params.merge(member: @user.member))
         photo.image.attach(io: File.open(params['photo']['image']), filename: "image.#{params['photo']['image'].split('.')[-1]}")
-        render json: { photos: ActiveModel::Serializer::CollectionSerializer.new(Photo.order(id: :asc).with_attached_image.limit(15), each_serializer: PhotoSerializer) }, status: 200
+        render json: { photos: ActiveModel::Serializer::CollectionSerializer.new(Photo.order(id: :desc).with_attached_image.limit(15), each_serializer: PhotoSerializer) }, status: 200
       end
 
       private def check_member
