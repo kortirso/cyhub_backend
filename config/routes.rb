@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         resources :members, only: %i[index]
         resources :events, only: %i[index]
         resources :photos, only: %i[index create]
+        resources :welcome, only: %i[index]
       end
     end
 
