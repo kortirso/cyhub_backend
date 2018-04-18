@@ -108,4 +108,24 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'methods' do
+    context '.member?' do
+      let!(:user) { create :user }
+
+      context 'without membership' do
+        it 'returns false' do
+          expect(user.member?).to eq false
+        end
+      end
+
+      context 'with membership' do
+        let!(:member) { create :member, user: user }
+
+        it 'returns true' do
+          expect(user.member?).to eq true
+        end
+      end
+    end
+  end
 end
