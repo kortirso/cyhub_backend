@@ -11,7 +11,7 @@ module Api
       end
 
       def create
-        photo = Photo.create(photo_params.merge(member: @user.member))
+        Photo.create(photo_params.merge(member: @user.member))
         render json: { photos: ActiveModel::Serializer::CollectionSerializer.new(Photo.order(id: :desc).with_attached_image.limit(15), each_serializer: PhotoSerializer) }, status: 200
       end
 
