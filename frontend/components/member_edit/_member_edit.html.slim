@@ -7,6 +7,7 @@
       = f.text_field :description, placeholder: 'Description'
       = f.text_field :date_from, placeholder: 'From'
       = f.text_field :date_to, placeholder: 'To'
-      /= f.check_box :active, true, false
+      = f.check_box :active
+      = f.label :active
       = f.file_field :avatar
       p= f.submit 'Update', class: 'button'
