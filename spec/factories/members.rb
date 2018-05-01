@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :member do
     name 'Member'
-    description 'Description'
+    title 'Title'
     association :user
 
     trait :active do

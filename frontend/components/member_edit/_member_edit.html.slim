@@ -3,8 +3,8 @@
   .members
     p Change member's params
     = form_with model: @member, local: true do |f|
-      = f.text_field :name, placeholder: 'Name'
-      = f.text_field :title, placeholder: 'Title'
+      = f.text_field :name, placeholder: 'Name *'
+      = f.text_field :title, placeholder: 'Title *'
       = f.text_area :description, placeholder: 'Description', rows: 7
       = f.text_field :date_from, placeholder: 'From'
       = f.text_field :date_to, placeholder: 'To'

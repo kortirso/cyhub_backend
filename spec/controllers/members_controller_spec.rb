@@ -24,7 +24,7 @@ RSpec.describe MembersController, type: :controller do
       sign_in_admin
 
       context 'for valid member' do
-        let(:request) { post :create, params: { member: { name: 'admin', description: '2', user_id: @current_user.id }, locale: 'en' } }
+        let(:request) { post :create, params: { member: { name: 'admin', title: '2', user_id: @current_user.id }, locale: 'en' } }
 
         it 'creates new member' do
           expect { request }.to change { Member.count }.by(1)

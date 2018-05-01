@@ -3,9 +3,9 @@
   .partners
     p Set new partner's params
     = form_with model: Partner.new, local: true do |f|
-      = f.text_field :name, placeholder: 'Name'
-      = f.text_field :label, placeholder: 'Label'
-      = f.text_area :description, placeholder: 'Description', rows: 7
-      = f.text_field :link, placeholder: 'Link'
+      = f.text_field :name, placeholder: 'Name *'
+      = f.text_field :label, placeholder: 'Label *'
+      = f.text_area :description, placeholder: 'Description *', rows: 7
+      = f.text_field :link, placeholder: 'Link *'
       = f.file_field :logo
       p= f.submit 'Create', class: 'button'

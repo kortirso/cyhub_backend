@@ -6,7 +6,7 @@ class Member < ApplicationRecord
 
   belongs_to :user
 
-  validates :user, :name, :description, presence: true
+  validates :user, :name, :title, presence: true
 
   scope :active, -> { where(active: true) }
 
