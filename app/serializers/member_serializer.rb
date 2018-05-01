@@ -1,3 +1,3 @@
 class MemberSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :days_left, :avatar_content
+  attributes :id, :name, :title, :description, :days_left, :avatar_content
 end
