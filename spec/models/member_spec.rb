@@ -1,6 +1,6 @@
 RSpec.describe Member, type: :model do
   it { should belong_to :user }
-  it { should have_one :basket }
+  it { should have_one(:basket).dependent(:destroy) }
   it { should validate_presence_of :user }
   it { should validate_presence_of :name }
   it { should validate_presence_of :title }

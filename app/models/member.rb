@@ -4,7 +4,7 @@ class Member < ApplicationRecord
 
   belongs_to :user
 
-  has_one :basket
+  has_one :basket, dependent: :destroy
   has_one_attached :avatar
 
   validates :user, :name, :title, presence: true
