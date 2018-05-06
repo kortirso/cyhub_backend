@@ -13,6 +13,7 @@
         th From
         th To
         th Days left
+        th Credit
         th
     tbody
       - @members.each do |member|
@@ -29,6 +30,7 @@
           td= member.date_from.try(:strftime, '%Y/%m/%d')
           td= member.date_to.try(:strftime, '%Y/%m/%d')
           td= member.days_left
+          td= member.credit
           td
             p= link_to 'Edit', edit_member_path(member)
             p= link_to 'Delete', member, method: :delete

@@ -21,6 +21,10 @@ class Member < ApplicationRecord
     avatar.attached? ? Base64.encode64(avatar.attachment.blob.download) : nil
   end
 
+  def credit
+    basket.amount
+  end
+
   private def create_basket
     Basket.create(member: self)
   end
