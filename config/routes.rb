@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         resources :events, only: %i[index]
         resources :products, only: %i[index]
         resources :photos, only: %i[index create]
+        resources :positions, only: %i[create]
       end
     end
 
