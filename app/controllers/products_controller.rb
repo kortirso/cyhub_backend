@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def create
     product = Product.new(product_params)
     if product.save
-      redirect_to edit_product_path(product)
+      redirect_to products_path
     else
       render :new
     end
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
-    redirect_to events_path
+    redirect_to products_path
   end
 
   def destroy
