@@ -32,5 +32,6 @@
           td= member.days_left
           td= member.credit
           td
+            p= link_to 'Clear credit', clear_member_path(member)
             p= link_to 'Edit', edit_member_path(member)
             p= link_to 'Delete', member, method: :delete

@@ -3,7 +3,7 @@ class MembersController < ApplicationController
   before_action :authenticate_user!
   before_action :user_is_admin?
   before_action :find_members, only: %i[index]
-  before_action :find_member, only: %i[edit update destroy]
+  before_action :find_member, only: %i[edit update destroy clear_credit]
 
   def index; end
 
@@ -22,6 +22,11 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     redirect_to members_path, status: 303
+  end
+
+  def clear_credit
+    @member.basket.clear
+    redirect_to members_path
   end
 
   private def find_members

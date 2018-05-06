@@ -8,7 +8,9 @@ Rails.application.routes.draw do
       get '/' => 'admins#index', as: :admin_panel
       resources :users, only: %i[index edit update destroy]
       resources :partners, except: %i[show]
-      resources :members, except: %i[show new]
+      resources :members, except: %i[show new] do
+        get :clear_credit, on: :member, as: :clear
+      end
       resources :events, except: %i[show]
       resources :products, except: %i[show]
       resources :photos, only: %i[index destroy]
