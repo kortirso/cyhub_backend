@@ -145,4 +145,41 @@ RSpec.describe MembersController, type: :controller do
       delete :destroy, params: { id: 111, locale: 'en' }
     end
   end
+
+  describe 'GET #clear_credit' do
+    it_behaves_like 'Admin Auth'
+
+    context 'for admins' do
+      sign_in_admin
+
+      context 'for unexisted member' do
+        it 'renders error page' do
+          get :clear_credit, params: { id: 111, locale: 'en' }
+
+          expect(response).to render_template 'shared/404'
+        end
+      end
+
+      context 'for existed member' do
+        let!(:member) { create :member }
+        let(:request) { get :clear_credit, params: { id: member.id, locale: 'en' } }
+
+        it 'calls clear basket' do
+          expect_any_instance_of(Basket).to receive(:clear)
+
+          request
+        end
+
+        it 'and redirects to members path' do
+          request
+
+          expect(response).to redirect_to members_en_path
+        end
+      end
+    end
+
+    def do_request
+      get :clear_credit, params: { id: 999, locale: 'en' }
+    end
+  end
 end

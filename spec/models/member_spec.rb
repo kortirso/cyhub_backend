@@ -10,4 +10,18 @@ RSpec.describe Member, type: :model do
 
     expect(member).to be_valid
   end
+
+  describe '.credit' do
+    let!(:member) { create :member }
+
+    it 'returns amount in basket' do
+      expect(member.credit).to eq member.basket.amount
+    end
+  end
+
+  describe '.create_basket' do
+    it 'creates basket for new member' do
+      expect { create :member }.to change { Basket.count }.by(1)
+    end
+  end
 end
