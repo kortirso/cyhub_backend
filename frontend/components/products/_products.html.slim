@@ -1,0 +1,23 @@
+= render 'components/navigation_admin/navigation_admin', path: 'products'
+.inside
+  = link_to 'New Product', new_product_path, class: 'button'
+  table
+    thead
+      tr
+        th ID
+        th Name
+        th Image
+        th Price
+        th
+    tbody
+      - @products.each do |product|
+        tr
+          td= product.id
+          td= product.name
+          td
+            - if product.image.attached?
+              = image_tag(product.image)
+          td= product.price
+          td
+            p= link_to 'Edit', edit_product_path(product)
+            p= link_to 'Delete', product, method: :delete

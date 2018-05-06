@@ -1,0 +1,9 @@
+= render 'components/navigation_admin/navigation_admin', path: 'products'
+.inside
+  .products
+    p Set new product's params
+    = form_with model: @product, local: true do |f|
+      = f.text_field :name, placeholder: 'Name'
+      = f.text_field :price, placeholder: 'Price'
+      = f.file_field :image
+      p= f.submit 'Update', class: 'button'
