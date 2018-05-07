@@ -6,7 +6,7 @@ class Basket < ApplicationRecord
   has_many :products, through: :positions
 
   validates :member, :amount, presence: true
-  validates :amount, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :amount, numericality: { greater_than_or_equal_to: 0 }
 
   def add_product(product)
     current_position = positions.find_by(product_id: product.id)
