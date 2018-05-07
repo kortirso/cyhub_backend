@@ -1,6 +1,6 @@
 # Represents products
 class Product < ApplicationRecord
-  include Rails.application.routes.url_helpers
+  include Imageable
 
   has_one_attached :image
 
@@ -9,9 +9,4 @@ class Product < ApplicationRecord
 
   validates :name, :price, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }
-
-  def image_link
-    return nil unless image.attached?
-    ENV['ROOT_URL'] + rails_blob_url(image, disposition: 'attachment', only_path: true)
-  end
 end
