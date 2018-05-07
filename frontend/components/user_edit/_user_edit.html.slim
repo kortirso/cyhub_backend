@@ -11,7 +11,7 @@
       = form_with model: Member.new, local: true do |f|
         = f.hidden_field :user_id, value: @user.id
         = f.hidden_field :name, value: (@user.username.empty? ? 'Not Yet' : @user.username)
-        = f.hidden_field :description, value: 'Not Yet'
+        = f.hidden_field :title, value: 'Not Yet'
         = f.submit 'Create Membership', class: 'button'
     - else
       = link_to 'Edit member account', edit_member_path(@user.member), class: 'button'

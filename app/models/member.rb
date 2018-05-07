@@ -4,8 +4,9 @@ class Member < ApplicationRecord
 
   belongs_to :user
 
-  has_one :basket, dependent: :destroy
   has_one_attached :avatar
+  has_one :basket, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   validates :user, :name, :title, presence: true
 

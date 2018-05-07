@@ -3,7 +3,7 @@ describe 'Positions API' do
     let!(:user) { create :user, email: 'simple@email.com', password: '12345678' }
 
     context 'if member does not exist' do
-      let(:request) { post '/api/v1/positions', params: { email: user.email, password: user.password, product_id: 111, format: :json } }
+      let(:request) { post '/api/v1/positions', params: { email: user.email, password: user.password, position: { product_id: 111 }, format: :json } }
 
       it 'does not create new position' do
         expect { request }.to_not change(Position, :count)
@@ -24,7 +24,7 @@ describe 'Positions API' do
 
     context 'if product does not exist' do
       let!(:member) { create :member, user: user }
-      let(:request) { post '/api/v1/positions', params: { email: user.email, password: user.password, product_id: 111, format: :json } }
+      let(:request) { post '/api/v1/positions', params: { email: user.email, password: user.password, position: { product_id: 111 }, format: :json } }
 
       it 'does not create new position' do
         expect { request }.to_not change(Position, :count)
@@ -46,10 +46,10 @@ describe 'Positions API' do
     context 'for valid data' do
       let!(:member) { create :member, user: user }
       let!(:product) { create :product }
-      let(:request) { post '/api/v1/positions', params: { email: user.email, password: user.password, product_id: product.id, format: :json } }
+      let(:request) { post '/api/v1/positions', params: { email: user.email, password: user.password, position: { product_id: product.id }, format: :json } }
 
       it 'creates new position' do
-        expect { request }.to_not change(Position, :count)
+        expect { request }.to change(Position, :count)
       end
 
       context 'in answer' do
@@ -59,9 +59,15 @@ describe 'Positions API' do
           expect(response.status).to eq 200
         end
 
-        %w[id amount].each do |attr|
-          it "and contains basket #{attr}" do
-            expect(response.body).to be_json_eql(Basket.last.send(attr.to_sym).to_json).at_path("basket/#{attr}")
+        %w[id email username].each do |attr|
+          it "and contains user #{attr}" do
+            expect(response.body).to be_json_eql(User.last.send(attr.to_sym).to_json).at_path("user/#{attr}")
+          end
+        end
+
+        %w[password encrypted_password].each do |attr|
+          it "and does not contains user #{attr}" do
+            expect(response.body).to_not have_json_path("user/#{attr}")
           end
         end
       end

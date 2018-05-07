@@ -6,8 +6,8 @@ module Api
       before_action :find_product, only: %i[create]
 
       def create
-        Position.create(product: @product, basket: @user.member.basket)
-        render json: @user.member.basket, status: 200
+        @user.member.basket.add_product(@product)
+        render json: @user, status: 200
       end
 
       private def check_member
@@ -15,7 +15,7 @@ module Api
       end
 
       private def find_product
-        @product = Product.find_by(id: params[:product_id])
+        @product = Product.find_by(id: params[:position][:product_id])
         render json: { error: 'Product does not exist' }, status: 404 if @product.nil?
       end
     end
