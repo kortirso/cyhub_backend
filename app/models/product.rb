@@ -7,4 +7,8 @@ class Product < ApplicationRecord
 
   validates :name, :price, presence: true
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  def image_content
+    image.attached? ? Base64.encode64(image.attachment.blob.download) : nil
+  end
 end
