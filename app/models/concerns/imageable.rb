@@ -9,6 +9,10 @@ module Imageable
 
   def image_link
     return nil unless image.attached?
-    ENV['ROOT_URL'] + rails_blob_url(image, disposition: 'attachment', only_path: true)
+    domain + rails_blob_url(image, disposition: 'attachment', only_path: true)
+  end
+
+  private def domain
+    ENV['ROOT_URL'] || ''
   end
 end

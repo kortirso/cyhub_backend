@@ -24,4 +24,12 @@ RSpec.describe Product, type: :model do
       expect(product.image_link).to_not eq nil
     end
   end
+
+  describe '.domain' do
+    let!(:product) { create :product }
+
+    it 'return string with base domain' do
+      expect(product.send(:domain).is_a?(String)).to eq true
+    end
+  end
 end
