@@ -1,5 +1,7 @@
 # Represents member model
 class Member < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   SECONDS_IN_DAY = 86_400
 
   belongs_to :user
@@ -18,8 +20,9 @@ class Member < ApplicationRecord
     date_to.present? ? ((date_to.to_i - Time.now.to_i) / SECONDS_IN_DAY) : 0
   end
 
-  def avatar_content
-    avatar.attached? ? Base64.encode64(avatar.attachment.blob.download) : nil
+  def avatar_link
+    return nil unless avatar.attached?
+    ENV['ROOT_URL'] + rails_blob_url(avatar, disposition: 'attachment', only_path: true)
   end
 
   def credit
