@@ -22,14 +22,20 @@ class Member < ApplicationRecord
 
   def avatar_link
     return nil unless avatar.attached?
-    ENV['ROOT_URL'] + rails_blob_url(avatar, disposition: 'attachment', only_path: true)
+    domain + rails_blob_url(avatar, only_path: true)
   end
 
   def credit
     basket.amount
   end
 
-  private def create_basket
+  private
+
+  def create_basket
     Basket.create(member: self)
+  end
+
+  def domain
+    ENV['ROOT_URL'] || 'http://localhost:5000'
   end
 end

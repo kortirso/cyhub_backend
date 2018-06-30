@@ -8,6 +8,12 @@ class Partner < ApplicationRecord
 
   def logo_link
     return nil unless logo.attached?
-    ENV['ROOT_URL'] + rails_blob_url(logo, disposition: 'attachment', only_path: true)
+    domain + rails_blob_url(logo, only_path: true)
+  end
+
+  private
+
+  def domain
+    ENV['ROOT_URL'] || 'http://localhost:5000'
   end
 end
